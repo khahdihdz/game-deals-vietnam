@@ -34,7 +34,8 @@ async function sync(env:Env){
    items.push({id:'ep-'+(x.id||x.offerId||slug),title:x.title||'Epic Games free game',type:'free',platforms:['PC'],store_url:slug?'https://store.epicgames.com/en-US/p/'+slug:'https://store.epicgames.com/en-US/free-games',image_url:image,description:'Game miễn phí trên Epic Games Store trong thời gian khuyến mãi.',worth:'',discount_percent:'100',normal_price:'',sale_price:'0',end_date:end,source:'Epic Games Store',updated_at:now});
   }
  }
- const expiredRemoved=await countExpired(env);\n const oldGames=await read(env),map=new Map(oldGames.map(g=>[g.id,g]));
+ const expiredRemoved=await countExpired(env);
+ const oldGames=await read(env),map=new Map(oldGames.map(g=>[g.id,g]));
  items.filter(g=>!isExpired(g)).forEach(g=>map.set(g.id,g));
  const all=[...map.values()].filter(g=>!isExpired(g)).slice(0,1800);
  await sheets(env,'Games!A1:N1','PUT',[cols]);

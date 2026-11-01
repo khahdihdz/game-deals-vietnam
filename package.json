@@ -1,0 +1,1 @@
+{"name":"game-deals-vietnam","private":true,"version":"1.0.0","workspaces":["apps/mini-app","apps/worker"],"scripts":{"dev":"npm run dev -w @gdv/mini-app","build":"npm run build -w @gdv/mini-app","typecheck":"npm run typecheck -w @gdv/mini-app && npm run typecheck -w @gdv/worker","test":"npm run test -w @gdv/worker"}}

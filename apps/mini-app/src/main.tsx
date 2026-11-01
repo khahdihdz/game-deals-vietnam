@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import './style.css';
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('app');
+if (!root) throw new Error('Missing #app root element');
+
+createRoot(root).render(
   <React.StrictMode><App /></React.StrictMode>
 );

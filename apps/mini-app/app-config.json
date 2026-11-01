@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "Game Deals Vietnam",
+    "headerColor": "#10121b",
+    "headerTitle": "Game Deals Vietnam",
+    "textColor": "white",
+    "leftButton": "back",
+    "statusBar": "normal",
+    "actionBarHidden": false,
+    "hideAndroidBottomNavigationBar": true,
+    "hideIOSSafeAreaBottom": true
+  },
+  "debug": false,
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": []
+}

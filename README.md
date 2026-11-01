@@ -43,11 +43,19 @@ Trong Worker đặt `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `GOOGL
 - `POST /api/admin/sync` (Bearer token)
 
 ## Zalo setup and publishing
-1. Đăng ký Zalo Developer tại https://developers.zalo.me.
-2. Tạo Mini App và lấy Mini App ID tại https://mini.zalo.me/developers.
-3. Mở thư mục `apps/mini-app` bằng Zalo Mini App Studio/CLI, liên kết Mini App ID và xác thực tài khoản.
-4. Kiểm tra trên Simulator và thiết bị Zalo trước khi gửi duyệt.
-5. Tạo Zalo OA riêng nếu sau này cần triển khai luồng thông báo qua OA; tính năng này chưa bật khi chưa có OA ID và quyền tương ứng.
+- **Mini App name:** Game Deals
+- **Mini App ID:** `4298354197271713214`
+- **Project path:** `apps/mini-app`
+
+### Liên kết Mini App ID và phát hành
+1. Mở thư mục `apps/mini-app` bằng Zalo Mini App Studio hoặc terminal.
+2. Nếu dùng CLI cho dự án có sẵn, chạy `npx zmp-cli init` (hoặc `zmp init` nếu đã cài CLI), nhập Mini App ID ở trên và hoàn tất đăng nhập/xác thực tài khoản có quyền Developer/Admin.
+3. Chọn chế độ **Using ZMP to deploy only** để liên kết dự án hiện tại, không tạo lại source project.
+4. Chạy thử bằng Simulator; sau đó dùng Device để kiểm tra trên Zalo thật.
+5. Khi đã xác thực quyền sở hữu Mini App ID, mới thực hiện deploy lên nền tảng Zalo và gửi duyệt phiên bản.
+6. Tạo Zalo OA riêng nếu sau này cần triển khai luồng thông báo qua OA; tính năng này chưa bật khi chưa có OA ID và quyền tương ứng.
+
+**Lưu ý:** Mini App ID là mã định danh công khai, không phải App Secret hay Access Token. Không lưu token/secret đăng nhập vào Git. Cloudflare Pages chỉ là web preview, không thay thế quy trình deploy và xét duyệt trên Zalo.
 
 Cloudflare Pages chỉ là web preview, không thay thế quy trình đóng gói và phát hành Mini App trên nền tảng Zalo.
 

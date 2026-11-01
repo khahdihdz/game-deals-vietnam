@@ -2,7 +2,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {Search,Gift,Gamepad2,Heart,ExternalLink,RefreshCw,AlertCircle,Monitor,X} from 'lucide-react';
 type Game={id:string;title:string;type:string;platforms:string[];store_url:string;image_url:string;description:string;discount_percent:string;normal_price:string;sale_price:string;source:string};
 type Tab='all'|'giveaway'|'free'|'deal'|'saved';
-const API=(import.meta.env.VITE_API_BASE_URL||'').replace(/\/$/,'');
+const API=(import.meta.env.VITE_API_BASE_URL||'https://game-deals-vietnam-api.khahdihdz.workers.dev').replace(/\/$/,'');
 export default function App(){
  const [games,setGames]=useState<Game[]>([]),[tab,setTab]=useState<Tab>('all'),[q,setQ]=useState(''),[platform,setPlatform]=useState('all'),[loading,setLoading]=useState(true),[error,setError]=useState(''),[saved,setSaved]=useState<string[]>(()=>{try{return JSON.parse(localStorage.getItem('gdv-saved')||'[]')}catch{return[]}});
  async function load(){setLoading(true);setError('');try{const r=await fetch(API+'/api/games?type=all');if(!r.ok)throw Error('API HTTP '+r.status);const d=await r.json();if(!Array.isArray(d.games))throw Error('Dữ liệu API không hợp lệ');setGames(d.games)}catch(e){setError(e instanceof Error?e.message:'Không thể tải dữ liệu')}finally{setLoading(false)}}

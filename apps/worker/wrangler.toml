@@ -5,4 +5,4 @@ workers_dev = true
 [triggers]
 crons = ["0 */6 * * *"]
 [vars]
-ALLOWED_ORIGINS = "https://mini.zalo.me,https://game-deals-vietnam-eo5.pages.dev"
+ALLOWED_ORIGINS = "https://mini.zalo.me,https://game-deals-vietnam.pages.dev"

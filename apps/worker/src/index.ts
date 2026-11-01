@@ -36,7 +36,7 @@ async function sync(env:Env){
    const storeUrl=epicProductUrl(x);
    const image=(x.keyImages||[]).find((im:any)=>im.type==='OfferImageWide')?.url||(x.keyImages||[])[0]?.url||'';
    const end=active.endDate||'';
-   items.push({id:'ep-'+(x.id||x.offerId||slug),title:x.title||'Epic Games free game',type:'free',platforms:['PC'],store_url:storeUrl,image_url:image,description:'Game miễn phí trên Epic Games Store trong thời gian khuyến mãi.',worth:'',discount_percent:'100',normal_price:'',sale_price:'0',end_date:end,source:'Epic Games Store',updated_at:now});
+   items.push({id:'ep-'+(x.id||x.offerId||x.productSlug||x.urlSlug||'free'),title:x.title||'Epic Games free game',type:'free',platforms:['PC'],store_url:storeUrl,image_url:image,description:'Game miễn phí trên Epic Games Store trong thời gian khuyến mãi.',worth:'',discount_percent:'100',normal_price:'',sale_price:'0',end_date:end,source:'Epic Games Store',updated_at:now});
   }
  }
  const expiredRemoved=await countExpired(env);

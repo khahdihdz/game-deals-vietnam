@@ -152,3 +152,34 @@
   .feedback-fab{min-height:48px;padding:0 16px}
   .feedback-panel{width:min(360px,calc(100vw - 24px));max-height:65vh;padding:15px}
 }
+
+
+/* Fixed feedback launcher: keep it attached to the visible screen corner in Zalo */
+.feedback-widget{
+  position:fixed !important;
+  top:auto !important;
+  right:max(12px, env(safe-area-inset-right, 0px)) !important;
+  bottom:max(12px, env(safe-area-inset-bottom, 0px)) !important;
+  left:auto !important;
+  z-index:99999;
+  isolation:isolate;
+}
+.feedback-fab{
+  position:relative;
+  z-index:2;
+  touch-action:manipulation;
+}
+.feedback-panel{
+  position:relative;
+  z-index:1;
+  max-height:min(68dvh,560px);
+}
+@media(max-width:560px){
+  .feedback-widget{
+    right:max(12px, env(safe-area-inset-right, 0px)) !important;
+    bottom:max(12px, env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .feedback-panel{
+    max-height:min(62dvh,520px);
+  }
+}

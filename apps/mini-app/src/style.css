@@ -103,3 +103,52 @@
 .feedback-success,.feedback-error{display:flex;align-items:center;gap:7px;margin:0;font-size:12px}
 .feedback-success{color:#7ce0ad}.feedback-error{color:#ff9a9a}
 @media(max-width:560px){.feedback-panel{padding:16px}.feedback-toggle{width:100%}.feedback-submit{width:100%}}
+
+/* Floating feedback shortcut pinned to the bottom-right corner */
+.feedback-widget{
+  position:fixed;
+  right:max(16px,env(safe-area-inset-right));
+  bottom:max(18px,env(safe-area-inset-bottom));
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
+  pointer-events:none;
+}
+.feedback-fab{
+  pointer-events:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:50px;
+  padding:0 18px;
+  border:1px solid #a88cff;
+  border-radius:28px;
+  background:linear-gradient(135deg,#8b5cf6,#5940c8);
+  color:#fff;
+  font:600 12px/1 inherit;
+  box-shadow:0 8px 28px #0008,0 0 0 4px #8b5cf622;
+  cursor:pointer;
+}
+.feedback-fab svg{width:19px;height:19px;flex:0 0 auto}
+.feedback-panel{
+  pointer-events:auto;
+  width:min(360px,calc(100vw - 30px));
+  max-height:min(70vh,560px);
+  overflow-y:auto;
+  margin:0;
+  padding:18px;
+  border:1px solid #51456f;
+  border-radius:18px;
+  background:#151522;
+  box-shadow:0 14px 48px #000a;
+}
+.feedback-panel .feedback-form{margin-top:14px}
+.feedback-panel .feedback-submit{width:100%;justify-self:stretch}
+@media(max-width:560px){
+  .feedback-widget{right:max(12px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}
+  .feedback-fab{min-height:48px;padding:0 16px}
+  .feedback-panel{width:min(360px,calc(100vw - 24px));max-height:65vh;padding:15px}
+}

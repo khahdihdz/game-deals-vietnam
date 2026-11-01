@@ -1,4 +1,4 @@
-# GAME DEALS VIETNAM
+# GAME DEALS
 
 Zalo Mini App tổng hợp game miễn phí, giveaway và game giảm giá.
 
@@ -11,7 +11,8 @@ Zalo Mini App tổng hợp game miễn phí, giveaway và game giảm giá.
 ## Mini App compatibility
 - Root DOM sử dụng `#app` theo yêu cầu của Zalo Mini App.
 - Cấu hình Mini App nằm tại `apps/mini-app/app-config.json`.
-- Danh sách game yêu thích dùng `nativeStorage` của ZMP SDK; khi chạy ngoài Zalo, ứng dụng dùng `localStorage` làm fallback cho web preview.
+- Danh sách game yêu thích dùng Native Storage đồng bộ của ZMP SDK; khi chạy ngoài Zalo, ứng dụng dùng `localStorage` làm fallback cho web preview.
+- Mini App chạy trên origin chính thức `https://h5.zdn.vn`; CORS Worker đã cho phép origin này.
 - Vite dùng relative asset paths để hỗ trợ môi trường phân phối static assets của Mini App.
 - Không yêu cầu Mini App ID để build và kiểm tra mã nguồn. Cần liên kết Mini App ID và đăng nhập Zalo Developer trước khi đóng gói/phát hành chính thức.
 
